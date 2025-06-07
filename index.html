@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <div class="modal buy-ticket-student" id="student-modal" onclick="purchaseStudentTicket">
+    <div class="modal buy-ticket-standart" id="standart-modal" onclick="purchaseStudentTicket">
         <div class="modal-top">
             <h2>Купи Билет</h2>
 
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="modal-ticket-bottom">
-                    <p>Стандартен билет</p>
+                    <p id="ticket-name"></p>
                 </div>
 
                 <button class="card-btn" onclick=""></button>
@@ -52,15 +52,12 @@
         </div>
         
     </div>
-    
-    <div class="modale buy-ticket-standart" id="standart-modal" onclick="purchaseStandartModal">
-        <div class="modal-top">
-            <h2>Купи Билет</h2>
-            
-        </div>
+
+    <div class="modal payment" id="purchase-modal">
+
     </div>
     
-    <div class="modale purchase-succesful" id="success">
+    <div class="modal purchase-succesful" id="success">
 
     </div>
     <!-- NAVIGATION -->
@@ -71,7 +68,7 @@
                 <a href="#">Начало</a>
             </li>
             <li>
-                <a href="#">Купи билет</a>
+                <a href="#" onclick="purchaseStandartModal()">Купи билет</a>
             </li>
             <li><a href="#">За изложбата</a></li>
             <li><a href="#">За автора</a></li>
@@ -97,7 +94,7 @@
                 </a>
             </li class="hiddenOnPhone">
             <li class="hiddenOnPhone">
-                <a href="#">
+                <a href="#" onclick="purchaseStandartModal()">
                     Купи билет
                 </a>
             </li>
@@ -138,7 +135,7 @@
                 <p>12.08</p>
             </div>
 
-            <a href="#" class="card-btn">Купи билет</a>
+            <a href="#" class="card-btn" onclick="purchaseStandartModal()">Купи билет</a>
         </div>
         
         <div class="right">
@@ -314,7 +311,7 @@
                         , което говори самата
                         <span class="hw">тишина</span>
                     </p>
-                    <a href="#" class="card-btn">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
                 </div>
 
                 <div class="pic-boxl-bottom">
@@ -359,8 +356,8 @@
                 </div>
 
                 <div class="ticket-box-bottom">
-                    <p>Стандартен билет</p>
-                    <a href="#" class="card-btn">Купи билет</a>
+                    <p>Студентски билет</p>
+                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
                 </div>
             </div>
             
@@ -378,7 +375,23 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
+                </div>
+
+                <div class="ticket-box-top">
+                    <p>
+                       изложба иван милев //<br>
+                       1 юли – 12 август 2025  //<br>
+                       TATE Modern, Лондон
+                    </p>
+                    <p class="ticket-price">
+                        £12
+                    </p>
+                </div>
+
+                <div class="ticket-box-bottom">
+                    <p>Студентски билет</p>
+                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
                 </div>
             </div>
         
@@ -414,7 +427,7 @@
         </div>
     </section>
 
-    <!-- TODO: FOOTER -->
+    <!-- FOOTER -->
     <footer>
         
         <div class="footer-top">
@@ -478,15 +491,67 @@
 
 <!-- MODALS-->
 <script defer>
-    const standart_modal = document.getElementById("standart-modal")
-    const student_modal = document.getElementById("student-modal")
-    const success_modal = document.getElementById("Standart-modal")
+    const source_tickets = "http://localhost:3000/tickets"
+    const source_purchases = "http://localhost:3000/purchases"
+    
+    async function getTicketTypes() {
+        const response = await fetch(source_tickets)
 
-    function purchaseStudentTicket(){
-        student_modal.style.display = "block"
+        if (!response.ok){
+            throw new Error("Could not fetch API!")
+            console.error("Could not fetch API!")
+        }
+
+        const data = response.json()
+
+        return data;
     }
 
-    function purchaseStandartModal(){
-        standart_modal.style.display = "block"
+    async function displayTickets() {
+        const tickets = await getTicketTypes()
+
+        const price_field = document.getElementById("price")
+        const ticket_name_field = document.getElementById("ticket-name")
+
+        price_field.innerText = tickets[0].price;
+
+        ticket_name_field = tickets[0].name;
+
+    }
+
+    async function MakePurchase(){
+        const purchase_modal = document.getElementById("purchase-modal")
+        const success_modal = document.getElementById("success")
+        
+        const client_name = document.getElementById("client-name").value;
+        const client_email = document.getElementById("client-email").value;
+
+        const NewOrder = {
+            "client-name": client_name,
+            "client-email": client_email
+        };
+
+        const resposne = await fetch(source_purchases, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(NewOrder)
+        })
+
+        if (!resposne.ok) {
+            console.error("Could not fetch API!")
+            return
+        }
+
+        const result = resposne.json()
+
+        console.log("Succesful post request!")
+
+        purchase_modal.style.display = "none"
+        success_modal.style.display = "block"
+
+
+        
     }
 </script>
