@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иван Милев</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="modal buy-ticket-student" id="student-modal"></div>
+    <div class="modal buy-ticket-standart" id="standart-modal"></div>
+    <div class="modal purchase-succesful" id="success"></div>
+    <!-- NAVIGATION -->
+    <nav>
+        <!--FOR PHONE-->
+        <ul class="mobile-list" id="mobile-list">
+            <li>
+                <a href="#">Начало</a>
+            </li>
+            <li>
+                <a href="#">Купи билет</a>
+            </li>
+            <li><a href="#">За изложбата</a></li>
+            <li><a href="#">За автора</a></li>
+            <img src="/amtis-fe-2025/assets/close.png" onclick="closeMenu()" class="close">
+        </ul>
+
+        <!--FOR PC-->
+        <ul class="ul-left">
+            <li class="hiddenOnPhone">
+                <a href="#">За изложбата</a>
+            </li class="hiddenOnPhone">
+            <li class="hiddenOnPhone">
+                <a href="#">За автора</a>
+            </li>
+        </ul>
+        <a href="index.html" class="hiddenOnPhone">
+            <img src="/amtis-fe-2025/assets/im-hor.png" alt="nav-logo" class="nav-logo">
+        </a>
+        <ul class="ul-right">
+            <li class="hiddenOnPhone">
+                <a href="#">
+                    Начало
+                </a>
+            </li class="hiddenOnPhone">
+            <li class="hiddenOnPhone">
+                <a href="#">
+                    Купи билет
+                </a>
+            </li>
+            <li class="im-phone">
+                <a href="index.html">
+                    <img src="/amtis-fe-2025/assets/im-hor.png">
+                </a>
+            </li>
+            <li class="open-icon" id="open-icon" onclick="openMenu()">
+                <a href="#">
+                    <img src="/amtis-fe-2025/assets/nav-icon.png">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HEADER SECTION-->
+    <section id="header">
+        <div class="main-text">
+            <p>
+                <span class="hw">Изкуството</span>
+                , което говори самата
+                <span class="hw">тишина</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- IZLOZBA -->
+    <section id="izlozba">
+        
+        <div class="left">
+            <h2>Защо тази <br>изложба?</h2>
+
+            <div class="date-wrapper">
+                <p>01.07</p>
+                <div class="horizontal-thin"></div>
+                <p>12.08</p>
+            </div>
+
+            <a href="#" class="card-btn">Купи билет</a>
+        </div>
+        
+        <div class="right">
+            <h4></h4>
+            <p>
+                „Иван Милев: Българският символизъм в сърцето на Лондон“ е първата мащабна международна изложба на един от най-значимите български художници на 20-ти век.
+            </p>
+            <p>
+                Тя има за цел да представи Милев като самобитен европейски творец, чието изкуство съчетава орнаментика, социална чувствителност и мистицизъм.
+            </p>
+            <p>
+                Посетителите ще открият визуален свят, в който се преплитат народна естетика, модернизъм и дълбока човешка емоция – все още болезнено актуални и днес.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION SECTION-->
+    <section id="introduction">
+        <div class="introduction-box">
+            <div class="introduction-imgbox">
+                <img src="/amtis-fe-2025/assets/im-portrait.png" alt="ivan-milev-portrait">
+                <img src="/amtis-fe-2025/assets/ivan-milev-logo-vert.png" class="ivan-milev-vert">
+            </div>
+            <div class="introduction-text">
+                <h4>Кой е иван милев?</h4>
+
+                <p>
+                    Иван Милев (1897 – 1927) е <b>един от най-ярките представители на 
+                    българския модернизъм</b> и символизъм. 
+                    Макар и с кратък творчески път, той оставя над 
+                    160 произведения – проникнати от дълбока чувствителност, 
+                    фолклорни мотиви и драматизъм. 
+                </p>
+                
+                <p>
+                    Учи декоративно изкуство във Виена, 
+                    вдъхновява се от сецесиона и източноправославната 
+                    иконопис. Милев умира едва на 30, но творчеството 
+                    му остава завинаги – като визуална хроника на 
+                    една цяла епоха.
+                </p>
+                <p>
+                    Творчеството на Иван Милев се отличава с дълбок хуманизъм 
+                    и национално самосъзнание. Той успява да въплъти духа на 
+                    следвоенна България – изпълнена с болка, надежда и търсене 
+                    на идентичност. В неговите образи – често жени, страдащи 
+                    фигури или свети персонажи – се преплитат българският фолклор, 
+                    модернистичният стил и личната му емоционална дълбочина. 
+                    Макар и животът му да е кратък, изкуството му надживява 
+                    времето – и остава актуално, разпознаваемо и дълбоко 
+                    въздействащо до днес.
+                </p>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+        <div class="gallery-top">
+            <div class="gallery-top-heading-wrapper">
+                <div class="horizontal"></div>
+                <h2>Какво ще видите?</h2>
+            </div>
+            <p class="gallery-text">
+                Потопете се в света на Иван Милев – където образите говорят без думи. 
+                В изложбата ще видите едни от най-знаковите му творби, които резонират 
+                с теми като вяра, страдание, женска сила и идентичност.
+            </p>
+        </div>
+
+        <div class="pictures-wrapper">
+            
+            <div class="picture-box">
+                
+                <div class="picture-top">
+                    <h5>Анихора</h5>
+                    <p>(1923)</p>
+                </div>
+                
+                <img src="amtis-fe-2025/assets/anihora.png">
+                
+                <p class="pic-desc">
+                    ‘Женски образ в съзерцание – 
+                    може би самата България, 
+                    представена като тиха, самотна 
+                    и вечна. Орнаментиката и 
+                    пастелната цветова палитра 
+                    придават на творбата медитативна 
+                    тежест.’
+                </p>
+            
+            </div>
+
+            <div class="picture-box">
+                
+                <div class="picture-top">
+                    <h5>Обрущение</h5>
+                    <p>(1923)</p>
+                </div>
+                
+                <img src="amtis-fe-2025/assets/obrushtenie.png">
+                
+                <p class="pic-desc">
+                    Сцена на селянин и мома в ритуален миг от 
+                    българския фолклор. Но зад романтиката се 
+                    крие напрежение – Милев изследва социалните 
+                    роли, традициите и тяхното разпадане в модерността.
+                </p>
+            
+            </div>
+
+            <div class="picture-box">
+                
+                <div class="picture-top">
+                    <h5>Нашите майки все в черно ходят</h5>
+                    <p>(1923)</p>
+                </div>
+                
+                <img src="amtis-fe-2025/assets/mothers.png">
+                
+                <p class="pic-desc">
+                    Изключително емоционално платно – женски образи, 
+                    облечени в черно, символи на скръбта, войната и 
+                    загубата. Заглавието звучи почти като народна песен.
+                </p>
+            
+            </div>
+
+            <div class="picture-box">
+                
+                <div class="picture-top">
+                    <h5>Светогорска легенда</h5>
+                    <p>(1923)</p>
+                </div>
+                
+                <img src="amtis-fe-2025/assets/legend.png">
+                
+                <p class="pic-desc">
+                    Митологична сцена, вдъхновена от Света гора 
+                    и православната традиция. Художникът съчетава
+                     християнска символика с езическа енергия в 
+                     уникална духовна композиция.
+                </p>
+            
+            </div>
+
+            <div class="picture-box">
+                
+                <div class="picture-top">
+                    <h5>Разпятие</h5>
+                    <p>(1923)</p>
+                </div>
+                
+                <img src="amtis-fe-2025/assets/crucifiction.png">
+                
+                <p class="pic-desc">
+                    Драматична интерпретация на Христовото 
+                    разпятие с изцяло нова композиционна 
+                    логика. Христос е представен не просто 
+                    като религиозен символ, а като страдащ 
+                    човек, близък до зрителя.
+                </p>
+            
+            </div>
+
+            <div class="picture-box-last">
+                <p>изложба иван милев // 1 юли – 12 август 2025  // TATE Modern, Лондон</p>
+
+                <div class="pic-boxl-middle">
+                    <p>
+                        <span class="hw">Изкуството</span>
+                        , което говори самата
+                        <span class="hw">тишина</span>
+                    </p>
+                    <a href="#" class="card-btn">Купи билет</a>
+                </div>
+
+                <div class="pic-boxl-bottom">
+                    <img src="/amtis-fe-2025/assets/im-hor.png">
+                    <img src="/amtis-fe-2025/assets/tate-logo.png">
+                </div>
+            </div>
+        
+        </div>
+    </section>
+    
+    <!-- QUOTE SECTION -->
+    <section id="quote">
+        <q>
+            Милев създава в периферията на Европа, 
+            но с централна чувствителност – неговите 
+            творби говорят за душата на Балканите със 
+            същата сила, с която Климт рисува Виена.
+        </q>
+    </section>
+    
+    <!--BUY TICKETS SECTION-->
+    <section id="tickets">
+        
+        <div class="tickets-top">
+            <div class="horizontal"></div>
+            <h2>купи билет</h2>
+        </div>
+
+        <div class="tickets-wrapper">
+            
+            <div class="ticket-box">
+                <div class="ticket-box-top">
+                    <p>
+                       изложба иван милев //<br>
+                       1 юли – 12 август 2025  //<br>
+                       TATE Modern, Лондон
+                    </p>
+                    <p class="ticket-price">
+                        £12
+                    </p>
+                </div>
+
+                <div class="ticket-box-bottom">
+                    <p>Стандартен билет</p>
+                    <a href="#" class="card-btn">Купи билет</a>
+                </div>
+            </div>
+            
+            <div class="ticket-box">
+                <div class="ticket-box-top">
+                    <p>
+                       изложба иван милев //<br>
+                       1 юли – 12 август 2025  //<br>
+                       TATE Modern, Лондон
+                    </p>
+                    <p class="ticket-price">
+                        £12
+                    </p>
+                </div>
+
+                <div class="ticket-box-bottom">
+                    <p>Студентски билет</p>
+                    <a href="#" class="card-btn" onclick="">Купи билет</a>
+                </div>
+            </div>
+        
+        </div>
+    
+    </section>
+
+    <!-- CONTACTS SECTION -->
+    <section id="contacts">
+        <div class="contacts-wrapper">
+            <div class="contact-box">
+                <p>Адрес:<br>
+                    TATE Modern, 
+                    Bankside, London SE1 9TG
+                </p>
+            </div>
+            <div class="contact-box">
+                <p>
+                    Работно време: <br>
+                     Пон–Нед: 10:00 – 18:00 ч.
+                </p>
+            </div>
+            <div class="contact-box">
+                <p>С транспорт: <br>
+                    Метро: St. Paul’s или Southwark
+                    Автобуси: 45, 63, 100</p>
+            </div>
+            <div class="contact-box">
+                <p>С колело: <br>
+                    Има стойки за велосипеди
+                    Достъпно за хора с увреждания</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TODO: FOOTER -->
+    <footer>
+        
+        <div class="footer-top">
+            <img src="amtis-fe-2025/assets/im-hor.png">
+        </div>
+        
+        <div class="footer-middle">
+            <p>Спонсори и партньори</p>
+            
+            <div class="footer-sponsors-wrapper">
+                <img src="amtis-fe-2025/assets/im-hor.png">
+                <img src="amtis-fe-2025/assets/tate-logo.png">
+                <img src="amtis-fe-2025/assets/logo-globus.png">
+                <img src="amtis-fe-2025/assets/logo-circles.png">
+                <img src="amtis-fe-2025/assets/Frame.png">
+                <img src="amtis-fe-2025/assets/logo-72.png">
+            </div>
+        
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Иван Милев & TATE</p>
+            
+            <div class="footer-icon-wrapper">
+                <div class="icon-box">
+                    <img src="/amtis-fe-2025/assets/instagram.png">
+                    <p>Instagram</p>
+                </div>
+                <div class="icon-box">
+                    <img src="/amtis-fe-2025/assets/tiktok.png">
+                    <p>Tiktok</p>
+                </div>
+                <div class="icon-box">
+                    <img src="/amtis-fe-2025/assets/youtube.png">
+                    <p>Youtube</p>
+                </div>
+            </div>
+            
+            <p>info@ivanmilev-exhibition.com</p>
+        </div>
+    
+    </footer>
+</body>
+</html>
+
+<!--JS FOR INTERACTIVE ELEMENTS-->
+<script defer>
+    const open_icon = document.getElementById('open-icon');
+    const mobile_menu = document.getElementById('mobile-list');
+
+    function openMenu(){
+        open_icon.style.display = "none";
+        mobile_menu.style.display = "flex";
+    }
+
+    function closeMenu(){
+        mobile_menu.style.display = "none";
+        open_icon.style.display = "block";
+    }
+</script>
+
+<!-- MODALS-->
+<script defer>
+    const standart_modal = document.getElementById("standart-modal")
+    const student_modal = document.getElementById("student-modal")
+    const success_modal = document.getElementById("Standart-modal")
+
+    function purchaseStudentTicket(){
+        student_modal.style.display = "block"
+    }
+
+    function purchaseStandartModal(){
+        standart_modal.style.display = "block"
+    }
+</script>
