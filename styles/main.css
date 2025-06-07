@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Great+Vibes&family=Oswald:wght@200..700&display=sw');
 *{
     padding: 0;
@@ -210,7 +211,7 @@ footer{
 }
 
 /** === СЕКЦИЯ ИЗЛОЖДА === **/
-#izlozba{
+#exhibition{
     display: flex;
     color: white;
     padding-left: 142px;
@@ -267,13 +268,13 @@ footer{
 }
 
 @media (max-width: 768px) {
-    #izlozba{
+    #exhibition{
         flex-direction: column;
         padding-left: 16px;
         padding-right: 16px;
         padding-bottom: 66px;
     }
-    #izlozba .card-btn{
+    #exhibition .card-btn{
         display: none;
     }
     .left{
@@ -813,4 +814,44 @@ q{
     font-size: 2em;
     text-transform: uppercase;
     gap: 20px;
+}
+
+/* purchase modal stuff */
+.modal-purchase-middle{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+}
+#ticket-name{
+    color: white;
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+form label{
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 0.875em;
+    margin-bottom: 10px;
+}
+form input{
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+.submit-button{
+    border: 0px;
+    background-color: white;
+    font-family: "Oswald", sans-serif;
+    border-radius: 32px;
+    text-transform: uppercase;
+    align-self: center;
+    margin-top: 48px;
 }

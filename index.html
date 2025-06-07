@@ -54,7 +54,57 @@
     </div>
 
     <div class="modal payment" id="purchase-modal">
+        <div class="modal-top">
+            <h2>Купи Билет</h2>
 
+            <p>
+                <span class="hw">Изкуството</span>
+                , което говори с
+                <span class="hw">тишина</span>
+            </p>
+        </div>
+
+         <div class="modal-date-wrapper">
+            <p>01.07</p>
+            <div class="horizontal-modal"></div>
+            <p>12.07</p>
+        </div>
+
+        <div class="modal-tickets-wrapper">
+            <div class="modal-ticket">
+                <div class="modal-ticket-top">
+                    <p>
+                        изложба иван милев // <br>
+                        1 юли – 12 август 2025  // <br>
+                        TATE Modern, Лондон
+                    </p>
+
+                    <p id="price"></p>
+                </div>
+
+                <div class="modal-purchase-middle">
+                    <p id="ticket-name"></p>
+
+                    <form>
+                        <div>
+                            <label>Вашите имена: </label>
+                            <input type="text" required>
+                        </div>
+                        <div>
+                            <label>Вашия имейл: </label>
+                            <input type="email" required>
+                        </div>
+
+                        <button type="submit" onsubmit="MakePurchase()" class="submit-button">купи</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="modal-ticket">
+                
+            </div>
+        </div>
     </div>
     
     <div class="modal purchase-succesful" id="success">
@@ -68,7 +118,7 @@
                 <a href="#">Начало</a>
             </li>
             <li>
-                <a href="#" onclick="purchaseStandartModal()">Купи билет</a>
+                <a href="#" onclick="MakePurchase()()">Купи билет</a>
             </li>
             <li><a href="#">За изложбата</a></li>
             <li><a href="#">За автора</a></li>
@@ -94,7 +144,7 @@
                 </a>
             </li class="hiddenOnPhone">
             <li class="hiddenOnPhone">
-                <a href="#" onclick="purchaseStandartModal()">
+                <a href="#" onclick="MakePurchase()()">
                     Купи билет
                 </a>
             </li>
@@ -123,8 +173,8 @@
         </div>
     </section>
 
-    <!-- IZLOZBA -->
-    <section id="izlozba">
+    <!-- EXHIBITON -->
+    <section id="exhibition">
         
         <div class="left">
             <h2>Защо тази <br>изложба?</h2>
@@ -135,7 +185,7 @@
                 <p>12.08</p>
             </div>
 
-            <a href="#" class="card-btn" onclick="purchaseStandartModal()">Купи билет</a>
+            <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
         </div>
         
         <div class="right">
@@ -311,7 +361,7 @@
                         , което говори самата
                         <span class="hw">тишина</span>
                     </p>
-                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()">Купи билет</a>
                 </div>
 
                 <div class="pic-boxl-bottom">
@@ -357,7 +407,7 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
                 </div>
             </div>
             
@@ -375,7 +425,7 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
                 </div>
 
                 <div class="ticket-box-top">
@@ -391,7 +441,7 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="purchaseStandartModal">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
                 </div>
             </div>
         
@@ -550,8 +600,5 @@
 
         purchase_modal.style.display = "none"
         success_modal.style.display = "block"
-
-
-        
     }
 </script>
