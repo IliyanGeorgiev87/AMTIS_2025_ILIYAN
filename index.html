@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <div class="modal buy-ticket-standart" id="standart-modal" onclick="purchaseStudentTicket">
+    <div class="modal buy-ticket-standart" id="standart-modal">
         <div class="modal-top">
             <h2>Купи Билет</h2>
 
@@ -23,7 +23,7 @@
          <div class="modal-date-wrapper">
             <p>01.07</p>
             <div class="horizontal-modal"></div>
-            <p>12.07</p>
+            <p>12.08</p>
         </div>
 
         <div class="modal-tickets-wrapper">
@@ -35,19 +35,32 @@
                         TATE Modern, Лондон
                     </p>
 
-                    <p id="price">£12</p>
+                    <p id="price-student"></p>
+
+                    <div class="modal-ticket-bottom">
+                        <p id="ticket-name-standart"></p>
+                    </div>
+
+                    <button class="card-btn" onclick="MakePurchase()"></button>
                 </div>
-
-                <div class="modal-ticket-bottom">
-                    <p id="ticket-name"></p>
-                </div>
-
-                <button class="card-btn" onclick=""></button>
-
             </div>
 
             <div class="modal-ticket">
-                
+                <div class="modal-ticket-top">
+                    <p>
+                        изложба иван милев // <br>
+                        1 юли – 12 август 2025  // <br>
+                        TATE Modern, Лондон
+                    </p>
+
+                    <p id="price-standart"></p>
+
+                    <div class="modal-ticket-bottom">
+                        <p id="ticket-name-student"></p>
+                    </div>
+
+                    <button class="card-btn" onclick="MakePurchase()"></button>
+                </div>
             </div>
         </div>
         
@@ -67,7 +80,7 @@
          <div class="modal-date-wrapper">
             <p>01.07</p>
             <div class="horizontal-modal"></div>
-            <p>12.07</p>
+            <p>12.08</p>
         </div>
 
         <div class="modal-tickets-wrapper">
@@ -108,7 +121,46 @@
     </div>
     
     <div class="modal purchase-succesful" id="success">
+        <div class="modal-top">
+            <h2>Купи Билет</h2>
 
+            <p>
+                <span class="hw">Изкуството</span>
+                , което говори с
+                <span class="hw">тишина</span>
+            </p>
+        </div>
+
+         <div class="modal-date-wrapper">
+            <p>01.07</p>
+            <div class="horizontal-modal"></div>
+            <p>12.08</p>
+        </div>
+
+        <div class="modal-tickets-wrapper">
+            <div class="modal-ticket">
+                <div class="modal-ticket-top">
+                    <p>
+                        изложба иван милев // <br>
+                        1 юли – 12 август 2025  // <br>
+                        TATE Modern, Лондон
+                    </p>
+
+                    <p id="price-ticket"></p>
+                </div>
+
+                <div class="modal-purchase-middle">
+                    <div class="success-field">
+                        <button onclick="close()"></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-ticket">
+                
+            </div>
+        </div>
     </div>
     <!-- NAVIGATION -->
     <nav>
@@ -118,7 +170,7 @@
                 <a href="#">Начало</a>
             </li>
             <li>
-                <a href="#" onclick="MakePurchase()()">Купи билет</a>
+                <a href="#" onclick="MakePurchase()">Купи билет</a>
             </li>
             <li><a href="#">За изложбата</a></li>
             <li><a href="#">За автора</a></li>
@@ -144,7 +196,7 @@
                 </a>
             </li class="hiddenOnPhone">
             <li class="hiddenOnPhone">
-                <a href="#" onclick="MakePurchase()()">
+                <a href="#" onclick="MakePurchase()">
                     Купи билет
                 </a>
             </li>
@@ -185,7 +237,7 @@
                 <p>12.08</p>
             </div>
 
-            <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
+            <a href="#" class="card-btn" onclick="MakePurchase()">Купи билет</a>
         </div>
         
         <div class="right">
@@ -407,7 +459,7 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()">Купи билет</a>
                 </div>
             </div>
             
@@ -418,14 +470,14 @@
                        1 юли – 12 август 2025  //<br>
                        TATE Modern, Лондон
                     </p>
-                    <p class="ticket-price">
+                    <p class="ticket-price" id="">
                         £12
                     </p>
                 </div>
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()">Купи билет</a>
                 </div>
 
                 <div class="ticket-box-top">
@@ -441,7 +493,7 @@
 
                 <div class="ticket-box-bottom">
                     <p>Студентски билет</p>
-                    <a href="#" class="card-btn" onclick="MakePurchase()()">Купи билет</a>
+                    <a href="#" class="card-btn" onclick="MakePurchase()">Купи билет</a>
                 </div>
             </div>
         
@@ -558,23 +610,37 @@
     }
 
     async function displayTickets() {
-        const tickets = await getTicketTypes()
+        const tickets_data = await getTicketTypes()
 
-        const price_field = document.getElementById("price")
-        const ticket_name_field = document.getElementById("ticket-name")
+        const standart_price_field = document.getElementById("price-standart")
+        const standart_ticket_name_field = document.getElementById("ticket-name-standart")
 
-        price_field.innerText = tickets[0].price;
+        const student_price_field = document.getElementById("price-student")
+        const student_ticket_name_field = document.getElementById("ticket-name-student")
 
-        ticket_name_field = tickets[0].name;
+        standart_price_field.innerText = tickets[0].price;
+        standart_ticket_name_field = tickets[0].name;
+
+        student_price_field = tickets_data[1].price;
+        student_ticket_name_field = tickets_data[1].price;
 
     }
 
-    async function MakePurchase(){
+    async function MakePurchase(ticket_type){
         const purchase_modal = document.getElementById("purchase-modal")
         const success_modal = document.getElementById("success")
         
         const client_name = document.getElementById("client-name").value;
         const client_email = document.getElementById("client-email").value;
+
+        if (ticket_type == "student"){
+            const ticket_name_field = document.getElementById("ticket-name")
+            ticket_name_field.innerText = `Студентски`
+        }
+        else if (ticket_type == "standart"){
+            const ticket_name_field = document.getElementById("ticket-name")
+            ticket_name_field.innerText = "Стандартен"
+        }
 
         const NewOrder = {
             "client-name": client_name,
@@ -600,5 +666,14 @@
 
         purchase_modal.style.display = "none"
         success_modal.style.display = "block"
+    }
+
+    function close(){
+        const success_modal = document.getElementById("success")
+        success_modal.style.display = "none"
+    }
+
+    function downloadQR(){
+        // Here goes the code for the QR download function
     }
 </script>
