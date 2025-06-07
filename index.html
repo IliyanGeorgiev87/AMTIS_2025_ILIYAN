@@ -9,6 +9,7 @@
 </head>
 <body>
     
+    <!--* SELECT TICKET TYPE MODAL *-->
     <div class="modal buy-ticket-standart" id="standart-modal">
         <div class="modal-top">
             <h2>Купи Билет</h2>
@@ -27,6 +28,7 @@
         </div>
 
         <div class="modal-tickets-wrapper">
+            <!-- ticket 1-->
             <div class="modal-ticket">
                 <div class="modal-ticket-top">
                     <p>
@@ -41,10 +43,10 @@
                         <p id="ticket-name-standart"></p>
                     </div>
 
-                    <button class="card-btn" onclick="MakePurchase()"></button>
+                    <button class="card-btn" onclick="MakePurchase(`student`)"></button>
                 </div>
             </div>
-
+            <!--ticket 2-->
             <div class="modal-ticket">
                 <div class="modal-ticket-top">
                     <p>
@@ -59,13 +61,14 @@
                         <p id="ticket-name-student"></p>
                     </div>
 
-                    <button class="card-btn" onclick="MakePurchase()"></button>
+                    <button class="card-btn" onclick="MakePurchase(`standart`)"></button>
                 </div>
             </div>
         </div>
         
     </div>
 
+    <!-- PURCHASE TICKET MODAL -->
     <div class="modal payment" id="purchase-modal">
         <div class="modal-top">
             <h2>Купи Билет</h2>
@@ -108,14 +111,9 @@
                             <input type="email" required>
                         </div>
 
-                        <button type="submit" onsubmit="MakePurchase()" class="submit-button">купи</button>
+                        <button type="submit" onsubmit="MakeOrder()" class="submit-button">купи</button>
                     </form>
                 </div>
-
-            </div>
-
-            <div class="modal-ticket">
-                
             </div>
         </div>
     </div>
@@ -629,9 +627,6 @@
     async function MakePurchase(ticket_type){
         const purchase_modal = document.getElementById("purchase-modal")
         const success_modal = document.getElementById("success")
-        
-        const client_name = document.getElementById("client-name").value;
-        const client_email = document.getElementById("client-email").value;
 
         if (ticket_type == "student"){
             const ticket_name_field = document.getElementById("ticket-name")
@@ -641,6 +636,14 @@
             const ticket_name_field = document.getElementById("ticket-name")
             ticket_name_field.innerText = "Стандартен"
         }
+
+        
+    }
+
+    async function MakeOrder(){
+
+        const client_name = document.getElementById("client-name").value;
+        const client_email = document.getElementById("client-email").value;
 
         const NewOrder = {
             "client-name": client_name,
