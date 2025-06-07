@@ -8,9 +8,61 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div class="modal buy-ticket-student" id="student-modal"></div>
-    <div class="modal buy-ticket-standart" id="standart-modal"></div>
-    <div class="modal purchase-succesful" id="success"></div>
+    
+    <div class="modal buy-ticket-student" id="student-modal" onclick="purchaseStudentTicket">
+        <div class="modal-top">
+            <h2>Купи Билет</h2>
+
+            <p>
+                <span class="hw">Изкуството</span>
+                , което говори с
+                <span class="hw">тишина</span>
+            </p>
+        </div>
+
+         <div class="modal-date-wrapper">
+            <p>01.07</p>
+            <div class="horizontal-modal"></div>
+            <p>12.07</p>
+        </div>
+
+        <div class="modal-tickets-wrapper">
+            <div class="modal-ticket">
+                <div class="modal-ticket-top">
+                    <p>
+                        изложба иван милев // <br>
+                        1 юли – 12 август 2025  // <br>
+                        TATE Modern, Лондон
+                    </p>
+
+                    <p id="price">£12</p>
+                </div>
+
+                <div class="modal-ticket-bottom">
+                    <p>Стандартен билет</p>
+                </div>
+
+                <button class="card-btn" onclick=""></button>
+
+            </div>
+
+            <div class="modal-ticket">
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="modale buy-ticket-standart" id="standart-modal" onclick="purchaseStandartModal">
+        <div class="modal-top">
+            <h2>Купи Билет</h2>
+            
+        </div>
+    </div>
+    
+    <div class="modale purchase-succesful" id="success">
+
+    </div>
     <!-- NAVIGATION -->
     <nav>
         <!--FOR PHONE-->
@@ -67,9 +119,10 @@
         <div class="main-text">
             <p>
                 <span class="hw">Изкуството</span>
-                , което говори самата
+                , което говори с
                 <span class="hw">тишина</span>
             </p>
+            
         </div>
     </section>
 
